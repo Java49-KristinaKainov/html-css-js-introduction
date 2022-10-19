@@ -18,14 +18,14 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  background-color: azure;
+  background-color: beige;
   margin: 0;
 
 }
 
 .logo {
-  font-size: 2em;
-  background-color: bisque;
+  font-size: 2em; color: white;
+  background-color:darkolivegreen;
   display: block;
   text-align: center;
   font-family: posteretro;
@@ -57,10 +57,10 @@ body {
 }
 
 .details-title {
-  display: block;
+  display: block; color: white;
   font-family: posteretro;
   font-style: italic;
-  background-color:beige;
+  background-color:darkolivegreen;
   position: absolute;
   left: 3vw;
   bottom: 2vw;
@@ -94,10 +94,11 @@ body {
 }
 
 .thumbnails-title {
+  color: white;
   display: block;
   text-align: center;
   height: var(--thumbnails-title-height);
-  background-color: beige;
+  background-color:darkolivegreen;
 }
 
 .thumbnails-anchor {
