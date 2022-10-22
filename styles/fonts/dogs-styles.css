@@ -47,6 +47,12 @@ body {
    flex-grow: 1;
 }
 
+.main-class.hidden{
+   --thumbnails-img-width: 35vw;
+   --thumbnails-img-height: 25vw;
+   --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
+}
+
 .details-container {
    display: flex;
    flex-direction: column;
@@ -54,9 +60,20 @@ body {
    margin-bottom: 10vh;
 }
 
+.hidden .details-container{
+   display: none;
+}
+
 .details-frame{
   position: relative;
 }
+
+.hide-button{
+position: absolute;
+top: 3vh;
+right: 3vw;
+}
+
 
 .details-image {
    width: 90vw;
@@ -85,7 +102,11 @@ body {
    overflow-y: auto;
    justify-content: space-around;
    padding-left: 0;
+}
 
+.hidden .thumbnails-list{
+   max-height: 80vh;
+   margin-bottom: 10vh;
 }
 
 .thumbnails-item {
@@ -95,6 +116,7 @@ body {
    border: solid 1px black;
    border-radius: 25%;
    overflow: hidden;
+   
 }
 
 .thumbnails-image {
@@ -105,7 +127,7 @@ body {
 
 .thumbnails-title {
    display: block;
-   text-align: center;
+   text-align: center; font-size: 1.2em;
    height: var(--thumbnails-title-height);
    background-color: beige;
 }
@@ -137,13 +159,29 @@ margin-left: 2vw;
        justify-content: flex-start;
    }
 
+
+   .hidden .thumbnails-list{
+      margin-top: 10vh;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-right: 0;
+}
    .main-class {
        flex-direction: row;
        justify-content: space-around;
+       max-height: 90vh;
    }
+
+   .main-class.hidden{
+      --thumbnails-img-width: 20vw;
+      --thumbnails-img-height: 15vw;
+      --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
+   } 
+
    .details-image {
-       width: 45vw;
-       height: 38vw;
+       width: 35vw;
+       height: 28vw;
    }
 
    .details-container {
@@ -152,12 +190,27 @@ margin-left: 2vw;
        margin-bottom: 0;
    }
 
+   .hidden .details-container{
+      display: none;
+   }
+      
+   .hidden .thumbnails-item{
+         max-height: 10vh;
+      }
 
    @media (min-width: 900px) {
        .thumbnails-list {
            padding-right: 2vw;
            margin-top: 2.5vh;
            max-height: 86vh;
+       }
+
+       .hidden .thumbnails-list{
+         margin-top: 10vh;
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: space-around;
+         margin-right: 0; 
        }
 
        .thumbnails-title {
@@ -169,11 +222,14 @@ margin-left: 2vw;
            margin-right: 5vw;
        }
 
+       .hidden .details-container{
+         display: none;
+      }
+        
 
        .details-image {
            width: 45vw;
            height: 35vw;
        }
-
-   }
-}
+       }
+      }
