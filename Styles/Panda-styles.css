@@ -4,6 +4,12 @@
 src: url("Fonts/posteretro.ttf");
 }
 
+@font-face {
+  font-family: teddy-bear;
+  src: url("Fonts/teddy-bear.ttf");
+src: url("Fonts/teddy-bear.ttf");
+}
+
 :root {
   --thumbnails-img-width: 20vw;
   --thumbnails-img-height: 15vw;
@@ -41,6 +47,13 @@ body {
   flex-grow: 1;
 }
 
+.main-class.hidden{
+  --thumbnails-img-width: 35vw;
+  --thumbnails-img-height: 25vw;
+  --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
+}
+
+
 .details-container {
   display: flex;
   flex-direction: column;
@@ -48,7 +61,19 @@ body {
   margin-bottom: 10vh;
   position: relative;
 }
+.hidden .details-container{
+  display: none;
+}
+.details-frame{
+  position: relative;
+}
 
+.hide-button{
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  }
+  
 .details-image {
   width: 90vw;
   height: 70vw;
@@ -76,6 +101,10 @@ body {
   justify-content: space-around;
   padding-left: 0;
 
+}
+.hidden .thumbnails-list{
+  max-height: 80vh;
+  margin-bottom: 10vh;
 }
 
 .thumbnails-item {
@@ -115,11 +144,9 @@ margin-left: 2vw;
       --thumbnails-img-height: 8vw;
       --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.25)
   }
-
   .logo {
       font-size: 1.8em;
   }
-
   .thumbnails-list {
       flex-direction: column;
       flex-wrap: nowrap;
@@ -128,13 +155,31 @@ margin-left: 2vw;
       justify-content: flex-start;
   }
 
+
+  .hidden .thumbnails-list{
+     margin-top: 10vh;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     margin-right: 0;
+}
   .main-class {
       flex-direction: row;
       justify-content: space-around;
+      max-height: 90vh;
   }
+
+  .main-class.hidden{
+     --thumbnails-img-width: 20vw;
+     --thumbnails-img-height: 15vw;
+     --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
+  } 
+
   .details-image {
       width: 45vw;
       height: 38vw;
+      width: 35vw;
+      height: 28vw;
   }
 
   .details-container {
@@ -143,6 +188,13 @@ margin-left: 2vw;
       margin-bottom: 0;
   }
 
+  .hidden .details-container{
+     display: none;
+  }
+
+  .hidden .thumbnails-item{
+        max-height: 10vh;
+     }
 
   @media (min-width: 900px) {
       .thumbnails-list {
@@ -151,26 +203,31 @@ margin-left: 2vw;
           max-height: 86vh;
       }
 
+      .hidden .thumbnails-list{
+        margin-top: 10vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-right: 0; 
+      }
+
       .thumbnails-title {
           font-size: 1.5em;
       }
-
       .details-container {
           margin-top: 5vh;
           margin-right: 5vw;
       }
 
-      .details-title {
-          font-size: 1.5em;
-      }
+      .hidden .details-container{
+        display: none;
+     }
+
 
       .details-image {
           width: 45vw;
           height: 35vw;
       }
 
-      .details-title{
-        bottom: 9vw;
-      }
   }
 }
