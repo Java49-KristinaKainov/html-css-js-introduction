@@ -9,13 +9,17 @@ console.log(sum(op1, op2))
 
 
 function sumDigits(number){
-    let res = 9+7+8;
-return res;
+number = Math.abs(number);
+let sum = 0;
+number = Math.trunc(number);
+do{
+let digit = number % 10;
+number = (number - digit) /  10;
+sum += digit;
+}while(number!=0);
+return sum;
 }
-console.log(sumDigits(-978));
+let sum = sumDigits(123)
+console.log(sum);
 
-function sumDigits1(number){
-    let res = 11+4+7;
-return res;
-}
-console.log(sumDigits1(1147));
+
