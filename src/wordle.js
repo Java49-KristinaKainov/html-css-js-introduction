@@ -9,10 +9,10 @@ const playAgainElement = document.getElementById("play-again");
 const INITIAL_TRIALS = 6;
 let trials = INITIAL_TRIALS;
 function showTrialsMessage(trials) {
-    
+
         trialsElement.innerHTML = `remained ${trials} guess trials`;
-    
-   
+
+
 }
 function startGame() {
     let index = Math.floor(Math.random() * words.length);
@@ -27,7 +27,7 @@ function onChange(event) {
     const wordGuess = event.target.value;
     trials--;
     showTrialsMessage(trials);
-    
+
     event.target.value='';
     if (wordGuess.length != N_LETTERS) {
         alert(`A word should contain ${N_LETTERS} letters`)
@@ -38,6 +38,7 @@ function onChange(event) {
             let index = word.indexOf(l);
             let res = 'red';
             if (index  > -1) {
+                res = index == i ? 'green' : 'yellow'
                 res = l == word[i] ? 'green' : 'yellow'
             }
             return res;
@@ -49,7 +50,7 @@ function onChange(event) {
     if (trials == 0 || res) {
         endGame(res);
     }
-    
+
 }
 function endGame(isSuccess) {
     if (isSuccess) {
@@ -59,8 +60,8 @@ function endGame(isSuccess) {
         gameOverElement.innerHTML =  "Sorry you are loser";
         gameOverElement.style.color = "red"
     }
-   
+
+}
    playAgainElement.style.display='block';
    trialsElement.innerHTML = ''
-}
 startGame()
