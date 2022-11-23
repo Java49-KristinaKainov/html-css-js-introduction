@@ -1,35 +1,38 @@
-// function getAddressKey(){
-//     return "address";
-// }
+function isAnagram(str1, str2) {
+    let res = false;
+    if (str1.length == str2.length) {
+        const str1Occurrences = getSymbolOccurrences(str1);
+        res = checkAnagram(str1Occurrences, str2);
+    }
+    return res;
 
-// const person= {id:123, name: 'Vasya', last_name: 'Ivanov',
-//  year: 2000, address: {city: 'Lod',street: 'Sokolov', app: 100}
-// };
-//  console.log(person[yearExp]);
-//  console.log(person.address.street);
-
-function displayOccurrences(strings){
-    const occurrences = {};
-    strings.forEach(element => {
-        if (occurrences[element]) {
-            occurrences[element] ++;
-        } else{
-            occurrences[element] = 1;
-        }
-    });
-     //console.log(Object.entries(occurrences)); 
-  const occurrencesAr = Object.entries(occurrences);
-  occurrencesAr.sort((e1, e2) => e2[1] - e1[1]);
-  console.log(occurrencesAr);
+}
+function symbolProcessing(res, cur) {
+    if (res[cur]) {
+        res[cur]++;
+    } else {
+        res[cur] = 1;
+    }
+    return res;
 }
 
-// const x = {};
-// const string = "abc";
-// x[string] = 1;
-// console.log(x);
-// x[string] ++;
-// console.log(x);
+function getSymbolOccurrences(string) {
+    const stringArray = Array.from(string);
+    return stringArray.reduce(symbolProcessing
+        , {});
 
-const strings = ["a", "opr", "lmn", "abc", "lmn", 
-"abs", "lmn", "lmn", "abc", "a"];
-displayOccurrences(strings);
+}
+
+function checkAnagram(occurrences, string) {
+    const stringArray = Array.from(string);
+    let i = 0;
+    return stringArray.every(symbol => {
+        let res = false;
+        if (occurrences[symbol]) {
+            res = true;
+            occurrences[symbol]--;
+        }
+        return res;
+    })
+}
+isAnagram("yellow", "wolley")
