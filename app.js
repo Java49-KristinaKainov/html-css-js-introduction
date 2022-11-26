@@ -17,4 +17,3 @@ function updateSalaryPrimitive(salary, newSalary){
 let salary = 10000;
 updateSalaryPrimitive(salary, 20000);
 console.log("salary", salary);
-
